@@ -44,7 +44,38 @@
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
             </div>
+        </div>
+
+        <h2>HABILIDADES</h2>
+
+        <div id="habilidades">
+
+            <div class="habilidades-esp">
+                <h3>Lenguajes, frameworks y tecnologias de desarrollo</h3>
+                <ol>
+                    <li v-for='habilidad in habilidadesPro'>
+                        <a>{{habilidad.nombre}}</a>
+                        <br>
+                        <progress id="file" value="90" max="100"></progress>
+                    </li>
+                </ol>
+
+            </div>
+
+            <div class="habilidades-comp">
+                <h3>SOFTWARE Y HABILIDADES ADICIONALES</h3>
+                <ol>
+                    <li v-for='habilidad in habilidadesCom'>
+                        <a>{{habilidad.nombre}}</a>
+                        <br>
+                        <progress id="file" value="80" max="100"></progress>
+                    </li>
+                </ol>
+            </div>
+
+
         </div>
 
     </div>
@@ -57,9 +88,6 @@
             perfilText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consequuntur quia delectus est ex? Veniam sapiente accusantium ratione repellat praesentium nostrum totam, non animi, consequuntur atque nobis sed doloribus explicabo!"
         }
     })
-</script>
-
-<script>
     var port = new Vue({
         el: '#portafolio',
         data: {
@@ -78,7 +106,29 @@
             }]
         }
     })
+    var habilidades = new Vue({
+        el: '#habilidades',
+        data: {
+            habilidadesPro: [{
+                nombre: 'Angular'
+            }, {
+                nombre: 'React Native'
+            }, {
+                nombre: 'Vue.js'
+            }],
+
+            habilidadesCom: [{
+                nombre: 'Photoshop'
+            }, {
+                nombre: 'Ilustrator'
+            }, {
+                nombre: 'Figma'
+            }]
+        }
+    })
 </script>
+
+<!--Codigo para el funcionamiento del slideshow-->
 <script>
     var slideIndex = 1;
     showSlides(slideIndex);
