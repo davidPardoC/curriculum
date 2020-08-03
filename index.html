@@ -2,56 +2,116 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Pardo</title>
 </head>
+<boddy>
+    <nav>
+        <li>PERFIL</li>
+        <li>PORTAFOLIO</li>
+        <li>EDUCACIÓN</li>
+        <li>HABILIDADES</li>
+    </nav>
+    <div class="container">
+        <div>
+            <header class="header" id="header">
+                <div class="pic-contacto">
+                    <img src="./assets/profile.png" alt="profile picture" class="profile-pic">
+                    <button class="contact-button">CONTACTO</button>
+                </div>
+                <div class="profile-text-container">
+                    <p>{{perfilText}}</p>
+                </div>
+            </header>
+        </div>
 
-<body>
+        <h2>PORTAFOLIO</h2>
 
-    <div id="app">
-        {{ message }}
+        <div id="portafolio" class="portafolio-container">
+            <div class="slideshow-container">
+                <div v-for="proyecto in proyectos" class="mySlides fade">
+                    <div class="numbertext">1 / {{proyectos.length}}</div>
+                    <img v-bind:src="proyecto.pic" style="width:20rem">
+                    <div class="text">{{proyecto.nombre}}</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
     </div>
+</boddy>
 
-    <div id='app-2'>
-        <span v-bind:title="message">
-            Hover your mouse over me for a few seconds
-            to see my dynamically bound title!
-        </span>
-    </div>
+<script>
+    var app = new Vue({
+        el: '#header',
+        data: {
+            perfilText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum consequuntur quia delectus est ex? Veniam sapiente accusantium ratione repellat praesentium nostrum totam, non animi, consequuntur atque nobis sed doloribus explicabo!"
+        }
+    })
+</script>
 
-    <div id="app-3">
-        <span v-if="seen">Now you see me</span>
-    </div>
+<script>
+    var port = new Vue({
+        el: '#portafolio',
+        data: {
+            proyectos: [{
+                nombre: 'AMI web',
+                pic: './assets/slide.svg'
+            }, {
+                nombre: 'AMI mobile',
+                pic: './assets/slide.svg'
+            }, {
+                nombre: 'CRUD PHP',
+                pic: './assets/slide.svg'
+            }, {
+                nombre: 'API NodeJS y SQL',
+                pic: './assets/slide.svg'
+            }]
+        }
+    })
+</script>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: 'Hello Vue!'
-            }
-        })
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
 
-        var app2 = new Vue(
-            {
-                el: '#app-2',
-                data: {
-                    message: 'You loaded this page on ' + new Date().toLocaleString()
-                }
-            }
-        )
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
 
-        var app3 = new Vue({
-            el: '#app-3',
-            data: {
-                seen: true
-            }
-        })
-
-    </script>
-
-</body>
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "flex";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
 
 </html>
