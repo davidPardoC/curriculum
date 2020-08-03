@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="./assets/profile.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -9,13 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Pardo</title>
 </head>
+<nav>
+    <li>PERFIL</li>
+    <li>PORTAFOLIO</li>
+    <li>EDUCACIÓN</li>
+    <li>HABILIDADES</li>
+</nav>
 <boddy>
-    <nav>
-        <li>PERFIL</li>
-        <li>PORTAFOLIO</li>
-        <li>EDUCACIÓN</li>
-        <li>HABILIDADES</li>
-    </nav>
     <div class="container">
         <div>
             <header class="header" id="header">
@@ -31,36 +32,47 @@
 
         <h2>PORTAFOLIO</h2>
 
-
-        <h2>HABILIDADES</h2>
-
-        <div id="habilidades">
-
-            <div class="habilidades-esp">
-                <h3>Lenguajes, frameworks y tecnologias de desarrollo</h3>
-                <ol>
-                    <li v-for='habilidad in habilidadesPro'>
-                        <a>{{habilidad.nombre}}</a>
-                        <br>
-                        <progress id="file" value="90" max="100"></progress>
-                    </li>
-                </ol>
-
+        <div id="portafolio" class="portafolio">
+            <img v-bind:src='proyectos[index].pic' alt="">
+            <a>{{proyectos[index].nombre}}</a>
+            <div class="prevNextContainer">
+                <button v-on:click="prevSlide"><</button>
+                <button v-on:click="nextSlide">></button>
             </div>
+        </div>
 
-            <div class="habilidades-comp">
-                <h3>SOFTWARE Y HABILIDADES ADICIONALES</h3>
-                <ol>
-                    <li v-for='habilidad in habilidadesCom'>
-                        <a>{{habilidad.nombre}}</a>
-                        <br>
-                        <progress id="file" value="80" max="100"></progress>
-                    </li>
-                </ol>
-            </div>
+    </div>
 
+    <hr>
+    <h2>HABILIDADES</h2>
+
+    <div id="habilidades">
+
+        <div class="habilidades-esp">
+            <h3>Lenguajes, frameworks y tecnologias de desarrollo</h3>
+            <ol>
+                <li v-for='habilidad in habilidadesPro'>
+                    <a>{{habilidad.nombre}}</a>
+                    <br>
+                    <progress id="file" value="90" max="100"></progress>
+                </li>
+            </ol>
 
         </div>
+
+        <div class="habilidades-comp">
+            <h3>SOFTWARE Y HABILIDADES ADICIONALES</h3>
+            <ol>
+                <li v-for='habilidad in habilidadesCom'>
+                    <a>{{habilidad.nombre}}</a>
+                    <br>
+                    <progress id="file" value="80" max="100"></progress>
+                </li>
+            </ol>
+        </div>
+
+
+    </div>
 
     </div>
 </boddy>
@@ -77,17 +89,37 @@
         data: {
             proyectos: [{
                 nombre: 'AMI web',
-                pic: './assets/slide.svg'
+                pic: './assets/ami.svg'
             }, {
                 nombre: 'AMI mobile',
-                pic: './assets/slide.svg'
+                pic: './assets/ami-mobile.svg',
+                imageStyle: ''
             }, {
                 nombre: 'CRUD PHP',
-                pic: './assets/slide.svg'
+                pic: './assets/php.svg'
             }, {
                 nombre: 'API NodeJS y SQL',
-                pic: './assets/slide.svg'
-            }]
+                pic: './assets/nodeJS.svg'
+            }],
+
+            index: 0
+        },
+        methods: {
+            nextSlide: function() {
+                if (this.index == this.proyectos.length - 1) {
+                    this.index = 0
+                } else {
+                    this.index = this.index + 1
+                }
+            },
+            prevSlide: function() {
+                if (this.index == 0) {
+                    this.index = this.proyectos.length - 1
+                } else {
+                    this.index = this.index - 1
+                }
+                console.log(this.index)
+            }
         }
     })
     var habilidades = new Vue({
@@ -110,42 +142,6 @@
             }]
         }
     })
-</script>
-
-<!--Codigo para el funcionamiento del slideshow-->
-<script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    // Next/previous controls
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "flex";
-        dots[slideIndex - 1].className += " active";
-    }
 </script>
 
 </html>

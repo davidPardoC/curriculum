@@ -1,14 +1,23 @@
 :root {
     --main-hightloght-color: #F39696;
+    --bg-section: #374057;
+    --color-headers: #2c3e50;
+    --color-highlight-green: #00AF4E;
+    --color-light-gray: #EEEFF2;
 }
 
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
     margin-top: 5rem;
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -88,6 +97,54 @@ nav li:hover {
     color: #fff;
 }
 
+
+/*Seccion portafolioi*/
+
+.portafolio {
+    margin-right: auto;
+}
+
+.portafolio li {
+    list-style: none;
+}
+
+.portafolio img {
+    width: 40rem;
+    align-self: center;
+}
+
+.portafolio a {
+    text-align: center;
+    background-color: #fff;
+    margin-top: -4rem;
+    padding: 0.5rem;
+    width: 10rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.portafolio button {
+    width: 2.5rem;
+    font-size: 3rem;
+    background-color: transparent;
+    border: none;
+    background-color: rgba(145, 144, 144, 0.295);
+}
+
+.portafolio button:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+}
+
+.prevNextContainer {
+    display: flex;
+    width: 40rem;
+}
+
 h2 {
     text-align: center;
     font-style: italic;
@@ -112,7 +169,10 @@ h3 {
     box-shadow: 4px 10px 34px -6px rgba(0, 0, 0, 0.75);
     border-radius: 1rem;
     padding: 1rem;
-    margin-top: 1rem;
+    margin-top: 3rem;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .habilidades-esp li,
@@ -123,4 +183,26 @@ h3 {
 
 progress {
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 600px) {
+    nav {
+        display: none;
+    }
+    .profile-text-container {
+        display: none;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .portafolio img {
+        width: 25rem;
+        align-self: center;
+    }
 }
