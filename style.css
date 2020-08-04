@@ -1,9 +1,5 @@
 :root {
     --main-hightloght-color: #F39696;
-    --bg-section: #374057;
-    --color-headers: #2c3e50;
-    --color-highlight-green: #00AF4E;
-    --color-light-gray: #EEEFF2;
 }
 
 * {
@@ -11,9 +7,17 @@
 }
 
 body {
+    background-image: url(./assets/background.jpg);
+    background-position: top;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.general-container {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    z-index: 900;
 }
 
 .container {
@@ -54,6 +58,11 @@ nav li:hover {
 .header {
     display: flex;
     align-items: center;
+    margin-bottom: 10rem;
+}
+
+.dataContainer {
+    margin-left: 2rem;
 }
 
 .profile-pic {
@@ -62,7 +71,8 @@ nav li:hover {
     border-radius: 11rem;
 }
 
-.profile-text-container {
+.name,
+.text-container {
     -webkit-box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.75);
@@ -70,8 +80,11 @@ nav li:hover {
     display: flex;
     align-items: center;
     padding: 1rem;
-    height: 8rem;
-    margin-left: 2rem;
+    height: fit-content;
+    width: fit-content;
+    background-color: #fff;
+    text-align: justify;
+    font-size: 1.5rem;
 }
 
 .pic-contacto {
@@ -81,14 +94,18 @@ nav li:hover {
 }
 
 .contact-button {
+    -webkit-box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.75);
     width: 10rem;
     margin-top: 1rem;
-    height: 2rem;
-    border-radius: 1rem;
-    border: solid 1px;
+    border-radius: 1.5rem;
     background-color: white;
     font-style: italic;
     outline: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: none;
 }
 
 .contact-button:hover {
@@ -101,7 +118,14 @@ nav li:hover {
 /*Seccion portafolioi*/
 
 .portafolio {
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15rem;
+}
+
+.portafolio:hover {
+    cursor: pointer;
 }
 
 .portafolio li {
@@ -109,11 +133,13 @@ nav li:hover {
 }
 
 .portafolio img {
-    width: 40rem;
-    align-self: center;
+    width: 60rem;
 }
 
 .portafolio a {
+    -webkit-box-shadow: 4px 10px 34px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 10px 34px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 10px 34px -6px rgba(0, 0, 0, 0.75);
     text-align: center;
     background-color: #fff;
     margin-top: -4rem;
@@ -124,6 +150,11 @@ nav li:hover {
     margin-right: auto;
     text-transform: uppercase;
     font-style: italic;
+}
+
+.portafolio a:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
 }
 
 .portafolio button {
@@ -142,24 +173,29 @@ nav li:hover {
 
 .prevNextContainer {
     display: flex;
-    width: 40rem;
+    width: 60rem;
+    justify-content: space-between;
+    margin-top: -15rem;
 }
 
 h2 {
+    color: #fff;
     text-align: center;
-    font-style: italic;
     font-weight: 100;
     font-size: 3rem;
-}
-
-* {
-    box-sizing: border-box
+    font-weight: bolder;
+    text-shadow: 5px 5px 2px #000;
 }
 
 h3 {
     font-style: italic;
     text-transform: uppercase;
     text-align: center;
+}
+
+.habilidades-cont {
+    display: flex;
+    margin-bottom: 5rem;
 }
 
 .habilidades-esp,
@@ -173,6 +209,7 @@ h3 {
     max-width: 60rem;
     margin-left: auto;
     margin-right: auto;
+    background-color: #fff;
 }
 
 .habilidades-esp li,
@@ -193,16 +230,5 @@ progress {
     }
     .profile-text-container {
         display: none;
-    }
-    body {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-    .portafolio img {
-        width: 25rem;
-        align-self: center;
     }
 }
