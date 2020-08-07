@@ -71,6 +71,13 @@
         align-items: center;
     }
     
+    .toast {
+        position: absolute;
+        margin-left: 50%;
+        margin-right: 50%;
+        margin-top: -5rem;
+    }
+    
     @media (min-width: 1000px) {
         .btn {
             width: 15rem;
