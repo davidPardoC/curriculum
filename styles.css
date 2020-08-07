@@ -66,6 +66,11 @@
         border-radius: 1rem;
     }
     
+    .contactItem {
+        display: flex;
+        align-items: center;
+    }
+    
     @media (min-width: 1000px) {
         .btn {
             width: 15rem;
