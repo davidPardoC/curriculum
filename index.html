@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script src="index.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
@@ -227,7 +230,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button class="btn btn-primary" onclick="sendEmail()">ENVIAR</button>
                     </form>
                 </div>
             </div>
