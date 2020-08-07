@@ -43,3 +43,20 @@ body {
     background-image: url(./assets/background.jpg);
     background-attachment: fixed;
 }
+
+.contac2 {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+@media (min-width: 700px) {
+    .btn {
+        width: 20rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .perfilButton {
+        margin-left: 22.5rem;
+    }
+}
