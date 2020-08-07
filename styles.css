@@ -20,6 +20,7 @@
     box-shadow: -1px 1px 16px 0px rgba(0, 0, 0, 0.75);
     padding: 1rem;
     border-radius: 1rem;
+    background-color: white;
 }
 
 .contac {
@@ -28,4 +29,17 @@
     box-shadow: -1px 1px 16px 0px rgba(0, 0, 0, 0.75);
     padding: 1rem;
     border-radius: 1rem;
+    background-color: white
+}
+
+.genCont {
+    background-color: rgba(4, 4, 53, 0.849);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 5rem;
+}
+
+body {
+    background-image: url(./assets/background.jpg);
+    background-attachment: fixed;
 }
